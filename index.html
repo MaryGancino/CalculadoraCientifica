@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora Científica fx-991LA X</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="{{ url_for('static', filename='script.js') }}"
+            defer></script>
+</head>
+
+<body>
+
+<main class="calculadora">
+
+    <!-- MARCA Y PANEL SOLAR -->
+    <header class="encabezado">
+
+        <div class="marca">
+            <h1>CASIO</h1>
+            <p>fx-991LA X</p>
+            <strong>CLASSWIZ</strong>
+        </div>
+
+        <div class="panelSolar"></div>
+
+    </header>
+
+    <!-- PANTALLA DIGITAL -->
+    <section class="marcoPantalla">
+
+        <div class="pantalla">
+
+            <div class="indicadores">
+                <span id="indicadorShift"></span>
+                <span id="indicador">DEG</span>
+                <span>Math</span>
+            </div>
+
+            <div class="operacion" id="operacion"></div>
+
+            <div class="resultado" id="resultado">0</div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTROLES SUPERIORES -->
+    <section class="controles">
+
+        <button class="botonRedondo shift"
+                data-action="shift">SHIFT</button>
+
+        <button class="botonRedondo"
+                data-action="alpha">ALPHA</button>
+
+        <div class="navegacion">
+            <button class="arriba" data-action="up">▲</button>
+            <button class="izquierda" data-action="left">◀</button>
+            <button class="centro" data-action="ok">OK</button>
+            <button class="derecha" data-action="right">▶</button>
+            <button class="abajo" data-action="down">▼</button>
+        </div>
+
+        <button class="botonRedondo"
+                data-action="mode">MENU</button>
+
+        <button class="botonRedondo"
+                data-action="on">ON</button>
+
+    </section>
+
+    <!-- FUNCIONES CIENTIFICAS -->
+    <section class="teclasCientificas">
+
+        <button class="cientifica" data-action="options">OPTN</button>
+        <button class="cientifica" data-action="calc">CALC</button>
+        <button class="cientifica" data-action="fraction">□/□</button>
+        <button class="cientifica" data-action="integral">∫</button>
+        <button class="cientifica" data-action="variable">x</button>
+        <button class="cientifica" data-value="pi">π</button>
+
+        <button class="cientifica" data-action="fraction">a b/c</button>
+
+        <button class="cientifica" data-value="sqrt("
+                data-shift="root("
+                data-shift-label="ⁿ√">√</button>
+
+        <button class="cientifica" data-value="**2">x²</button>
+
+        <button class="cientifica" data-value="**">xʸ</button>
+
+        <button class="cientifica" data-value="log("
+                data-shift="logBase("
+                data-shift-label="logₐ">log</button>
+
+        <button class="cientifica" data-value="ln(">ln</button>
+
+        <button class="cientifica" data-action="sign"
+                data-shift="abs("
+                data-shift-label="Abs">(-)</button>
+
+        <button class="cientifica" data-action="angle">° ′ ″</button>
+
+        <button class="cientifica" data-value="1/("
+                data-shift="factorial("
+                data-shift-label="x!">x⁻¹</button>
+
+        <button class="cientifica" data-value="sin(">sin</button>
+        <button class="cientifica" data-value="cos(">cos</button>
+        <button class="cientifica" data-value="tan(">tan</button>
+
+        <button class="cientifica" data-action="sto">STO</button>
+        <button class="cientifica" data-action="eng">ENG</button>
+
+        <button class="cientifica" data-value="(">(</button>
+        <button class="cientifica"
+                data-value=")"
+                data-shift=","
+                data-shift-label=",">)</button>
+        <button class="cientifica" data-action="format">S⇔D</button>
+        <button class="cientifica" data-action="memory">M+</button>
+
+    </section>
+
+    <!-- TECLADO NUMERICO -->
+    <section class="teclado">
+
+        <button class="numero" data-value="7">7</button>
+        <button class="numero" data-value="8">8</button>
+        <button class="numero" data-value="9">9</button>
+        <button class="azul" data-action="del">DEL</button>
+        <button class="azul" data-action="clear">AC</button>
+
+        <button class="numero" data-value="4">4</button>
+        <button class="numero" data-value="5">5</button>
+        <button class="numero" data-value="6">6</button>
+        <button class="numero" data-value="*">×</button>
+        <button class="numero" data-value="/">÷</button>
+
+        <button class="numero" data-value="1">1</button>
+        <button class="numero" data-value="2">2</button>
+        <button class="numero" data-value="3">3</button>
+        <button class="numero" data-value="+">+</button>
+        <button class="numero" data-value="-">−</button>
+
+        <button class="numero" data-value="0">0</button>
+        <button class="numero" data-value=".">.</button>
+
+        <button class="numero" data-value="*10**"
+                data-shift="pi"
+                data-shift-label="π">×10ˣ</button>
+
+        <button class="numero" data-action="ans"
+                data-shift="%"
+                data-shift-label="%">Ans</button>
+
+        <button class="numero igual"
+                data-action="equals">=</button>
+
+    </section>
+
+    <!-- MENU DE FUNCIONES ADICIONALES -->
+    <section class="menuFunciones" id="menuFunciones" hidden>
+
+        <h2>Funciones adicionales</h2>
+
+        <button data-function="porcentaje">
+            Porcentaje de un número
+        </button>
+        
+        <button data-function="modulo">
+            Módulo (residuo)
+        </button>
+
+        <button data-function="gradosRadianes">
+            Grados a radianes
+        </button>
+
+        <button data-function="radianesGrados">
+            Radianes a grados
+        </button>
+
+        <button data-function="redondear">
+            Redondear número
+        </button>
+
+        <button data-function="modoAngulo">
+            Cambiar DEG / RAD
+        </button>
+
+        <button data-action="close-menu">
+            Volver
+        </button>
+
+    </section>
+
+</main>
+
+</body>
+</html>
